@@ -144,12 +144,13 @@ describe("Overlay", function () {
         }, done);
     });
 
-    it('should load correctly with token_auth if enable_framed_pages is set', function (done) {
+    it.only('should load correctly with token_auth if enable_framed_pages is set', function (done) {
         testEnvironment.testUseMockAuth = 0;
         testEnvironment.overrideConfig('General', 'enable_framed_pages', 1);
         testEnvironment.save();
 
         expect.screenshot("framed_loaded").to.be.capture(function (page) {
+            console.log('WHOLE URL: ' + baseUrl + '&token_auth=' + testEnvironment.tokenAuth + hash);
             page.load(baseUrl + '&token_auth=' + testEnvironment.tokenAuth + hash);
 
             removeOptOutIframe(page);

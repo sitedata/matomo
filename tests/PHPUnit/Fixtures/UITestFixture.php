@@ -120,6 +120,8 @@ class UITestFixture extends SqlDump
         );
 
         $this->addDangerousLinks();
+
+        print "FIXTURE TOKEN AUTH: " . self::getTokenAuth() . "\n";
     }
 
     public function performSetUp($setupEnvironmentOnly = false)
